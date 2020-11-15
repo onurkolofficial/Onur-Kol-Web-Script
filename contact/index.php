@@ -21,22 +21,22 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
         <div class="page-grid-3">
 			<div></div>
 			<div>
-                <form class="page-form vertical">
+                <form class="page-form vertical" action="form/" method="POST">
 					<div class="form-row">
                         <p><i class="fad fa-user"></i> <?php echo $nameText; ?></p>
-						<input <?php echo 'placeholder="'.$nameText.'"'; ?> type="text">
+						<input name="name" <?php echo 'placeholder="'.$nameText.'"'; ?> type="text">
                     </div>
                     <div class="form-row">
                         <p><i class="fad fa-user"></i> <?php echo $surnameText; ?></p>
-						<input <?php echo 'placeholder="'.$surnameText.'"'; ?> type="text">
+						<input name="surname" <?php echo 'placeholder="'.$surnameText.'"'; ?> type="text">
 					</div>
 					<div class="form-row">
                         <p><i class="fad fa-envelope"></i> <?php echo $mailText; ?></p>
-						<input <?php echo 'placeholder="'.$mailText.'"'; ?> type="email">
+						<input name="mail" <?php echo 'placeholder="'.$mailText.'"'; ?> type="email">
                     </div>
                     <div class="form-row">
                         <p><i class="fad fa-pencil"></i> <?php echo $messageText; ?></p>
-						<textarea style="height:150px;"></textarea>
+						<textarea name="message" style="height:150px;"></textarea>
 					</div>
 					<div class="form-row buttons">
 						<input <?php echo 'value="'.$sendText.'"'; ?> type="submit">

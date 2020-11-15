@@ -34,4 +34,9 @@ $messageText="Messajınız";
 $sendText="Gönder";
 $resetText="Sıfırla";
 $sendContactMailText="İletişim Maili Gönder";
+$contactEmptyName="İsim alanı boş.";
+$contactEmptyMail="Mail alanı boş.";
+$contactEmptyMessage="Mesaj alanı boş.";
+$contactSuccesSend="Mail gönderimi başarılı.";
+$contactErrorSend="Mail gönderimi başarısız.";
 ?>

@@ -34,4 +34,9 @@ $messageText="Message";
 $sendText="Send";
 $resetText="Reset";
 $sendContactMailText="Send Contact Mail";
+$contactEmptyName="Empty name field.";
+$contactEmptyMail="Empty mail field.";
+$contactEmptyMessage="Empty message field.";
+$contactSuccesSend="Mail send successfully.";
+$contactErrorSend="Mail send failed.";
 ?>
