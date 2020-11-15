@@ -17,7 +17,25 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
         <h4><?php echo $applicationsSummary; ?></h4>
     </div>
     <div class="page-section">
-        <h2 class="page-title">PAGE NAME</h2>
+        <div style="text-align:center;">
+            <h2><?php echo $appCategories; ?></h2>
+            <p><?php echo $appCategoriesSummary; ?></p>
+        </div>
+    </div>
+    <div class="page-section">
+        <br>
+        <div class="page-grid-3">
+			<div style="text-align:center;">
+                <a href="android/">
+                    <button style="font-size:14px; width:140px; height:70px;"><?php echo $androidAppsText; ?></button>
+                </a>
+			</div>
+			<div>
+			</div>
+			<div>
+			</div>
+        </div>
+        <br>
     </div>
 </div>
 <!-- Footer !-->

@@ -39,4 +39,9 @@ $contactEmptyMail="Mail alanı boş.";
 $contactEmptyMessage="Mesaj alanı boş.";
 $contactSuccesSend="Mail gönderimi başarılı.";
 $contactErrorSend="Mail gönderimi başarısız.";
+$appCategories="Uygulama Kategorileri";
+$appCategoriesSummary="Artık uygulamalarımı web sitem üzerinden görüntüleyebilir ve indirebilirsiniz.";
+$androidAppsText="Android Uygulamaları";
+$downloadText="İndir";
+$sourceText="Kaynak Kodu";
 ?>

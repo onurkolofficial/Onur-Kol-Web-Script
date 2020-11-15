@@ -39,4 +39,9 @@ $contactEmptyMail="Empty mail field.";
 $contactEmptyMessage="Empty message field.";
 $contactSuccesSend="Mail send successfully.";
 $contactErrorSend="Mail send failed.";
+$appCategories="Application Categories";
+$appCategoriesSummary="You can now view and download my apps on my website.";
+$androidAppsText="Android Apps";
+$downloadText="Download";
+$sourceText="Source Code";
 ?>
