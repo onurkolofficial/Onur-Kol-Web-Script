@@ -1,0 +1,37 @@
+<?php
+$siteName="Onur Kol Web Page";
+$welcomeText="Welcome to my web page.";
+$homeText="Home";
+$aboutText="About";
+$contactText="Contact";
+$applicationsText="My Applications";
+$copyText="Copyright &copy; 2020, Designed by Onur KOL.";
+$backText="Back";
+$homePageSummary="Web Homepage";
+$aboutSummary="About Web Page";
+$contactSummary="Contact Informations";
+$applicationsSummary="My Projects Informations";
+$tempNoteReleaseNewWeb="My new web page released!";
+$tempNoteSummary="Re-designed and improved properties.";
+$propertiesText="Properties";
+$tempWebProperties1="You will now be able to see new announcements from the site homepage.";
+$tempWebProperties2="You will be able to find contact addresses more easily thanks to the improved footer.";
+$tempWebProperties3="The new design is compatible for mobile devices. In this way, you will be able to navigate the site more easily.";
+$tempWebProperties4="Design performance has been improved, so the site loads faster.";
+$tempWebProperties5="Since the design is light, the device does not affect your performance.";
+$tempWebProperties6="Over time, updates will be made within the site to improve even more.";
+$clickMyApplicationsNav="You can get more information about my projects by clicking 'My Applications' from the site menu.";
+$page404Text="404 Not Found.";
+$page404Summary="The page you are looking for does not exist or has been deleted. Please click on the site menu or the 'Back' button below.";
+$aboutWebProperties="Site Properties";
+$versionsText="Versions";
+$versionHistoryText="Version History";
+$versionHistorySummary="You can now view the update details on the site.";
+$nameText="Name";
+$surnameText="Surname";
+$mailText="Mail Address";
+$messageText="Message";
+$sendText="Send";
+$resetText="Reset";
+$sendContactMailText="Send Contact Mail";
+?>

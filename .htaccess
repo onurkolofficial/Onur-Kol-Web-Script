@@ -1,0 +1,17 @@
+# Set Timezone
+php_value date.timezone Europe/Istanbul
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Error Pages
+ErrorDocument 404 /404/
+
+# EN
+RewriteRule ^en$ /?lang=en
+RewriteRule ^(.*)about/en$ /about/?lang=en
+# TR
+RewriteRule ^tr$ /?lang=tr
+RewriteRule ^(.*)about/tr$ /about/?lang=tr

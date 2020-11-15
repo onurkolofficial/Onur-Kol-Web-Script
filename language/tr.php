@@ -1,0 +1,37 @@
+<?php
+$siteName="Onur Kol Web Sayfası";
+$welcomeText="Web sayfama hoş geldiniz.";
+$homeText="Ana Sayfa";
+$aboutText="Hakkında";
+$contactText="İletişim";
+$applicationsText="Uygulamalarım";
+$copyText="Copyright &copy; 2020, Tasarım Onur KOL'a aittir.";
+$backText="Geri";
+$homePageSummary="Site Anasayfası";
+$aboutSummary="Site Hakkında";
+$contactSummary="İletişim Bilgileri";
+$applicationsSummary="Projelerimin Bilgileri";
+$tempNoteReleaseNewWeb="Yeni web sitem yayında!";
+$tempNoteSummary="Yeniden tasarlandı ve özellikler geliştirildi.";
+$propertiesText="Özellikler";
+$tempWebProperties1="Artık yeni duyuruları site anasayfasından görebileceksiniz.";
+$tempWebProperties2="Gelişmiş altbilgi(footer) sayesinde iletişim adreslerini daha kolay bulabileceksiniz.";
+$tempWebProperties3="Yeni tasarım mobil cihazlar için uyumlu. Bu sayede site içinde daha kolay dolaşabileceksiniz.";
+$tempWebProperties4="Tasarım performansı geliştirildi, bu sayede site daha hızlı yükleniyor.";
+$tempWebProperties5="Tasarım hafif olduğu için cihaz performansınızı etkilemiyor.";
+$tempWebProperties6="Zamanla site içerisinde güncellemeler yapılarak daha da iyileştirilicektir.";
+$clickMyApplicationsNav="Site menüsünden 'Uygulamalarım' bölümüne tıklayarak projelerim hakkında daha fazla bilgiye sahip olabilirsiniz.";
+$page404Text="404 Bulunamadı.";
+$page404Summary="Aradığınız sayfa yok veya silinmiş. Lütfen site menüsünden veya aşağıdaki 'Geri' düğmesine tıklayın.";
+$aboutWebProperties="Site Özellikleri";
+$versionsText="Sürümler";
+$versionHistoryText="Sürüm Geçmişi";
+$versionHistorySummary="Artık site içerisindeki güncelleme detaylarına bakabilirsiniz.";
+$nameText="İsminiz";
+$surnameText="Soyadınız";
+$mailText="Mail Adresiniz";
+$messageText="Messajınız";
+$sendText="Gönder";
+$resetText="Sıfırla";
+$sendContactMailText="İletişim Maili Gönder";
+?>
