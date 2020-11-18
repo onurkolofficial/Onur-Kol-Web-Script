@@ -21,6 +21,14 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
         <p class="page-title"><?php echo $versionHistorySummary; ?></p>
         <h2><?php echo $versionsText; ?></h2>
     </div>
+    <!-- Version 1.0.1 !-->
+    <div class="page-section">
+        <h2 class="page-title">1.0.1</h2>
+        <p> - <?php echo $tempVersion101Properties1; ?></p>
+        <p> - <?php echo $tempVersion101Properties2; ?></p>
+        <p> - <?php echo $tempVersion101Properties3; ?></p>
+        <p> - <?php echo $tempVersion101Properties4; ?></p>
+    </div>
     <!-- Version 1.0.0 !-->
     <div class="page-section">
         <h2 class="page-title">1.0.0</h2>

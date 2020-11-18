@@ -44,4 +44,8 @@ $appCategoriesSummary="You can now view and download my apps on my website.";
 $androidAppsText="Android Apps";
 $downloadText="Download";
 $sourceText="Source Code";
+$tempVersion101Properties1="Changed mobile screen resolution. (320 to 480)";
+$tempVersion101Properties2="Improved forms layout.";
+$tempVersion101Properties3="Re-sized navigation buttons.";
+$tempVersion101Properties4="Re-sized footer buttons.";
 ?>

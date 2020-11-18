@@ -44,4 +44,8 @@ $appCategoriesSummary="Artık uygulamalarımı web sitem üzerinden görüntüle
 $androidAppsText="Android Uygulamaları";
 $downloadText="İndir";
 $sourceText="Kaynak Kodu";
+$tempVersion101Properties1="Mobil ekran çözünürlüğü değiştirildi. (320'den 480'e)";
+$tempVersion101Properties2="Form düzenleri iyileştirildi.";
+$tempVersion101Properties3="Navigasyon düğmeleri yeniden boyutlandırıldı.";
+$tempVersion101Properties4="Altbilgi düğmeleri yeniden boytulandırıldı.";
 ?>
