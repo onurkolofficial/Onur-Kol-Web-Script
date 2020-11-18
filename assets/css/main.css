@@ -25,15 +25,15 @@ ul{
     color: #BFBFBF;
 }
 .nav-menu {
-    margin-top: 4%;
+    margin-top: 7%;
 	text-align: center;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
     height: 40px;
 }
 .nav-menu li{
-    margin-left: 10px;
+    margin-left: 2px;
     display: inline-block;
 }
 .nav-menu .menu-item{
@@ -41,11 +41,12 @@ ul{
     color: #ffffff;
     display: inline-block;
     padding-top: 5px;
-    width: 110px;
-    height: 30px;
+	font-size:13px;
+    width: 100px;
+    height: 23px;
 }
 .nav-menu .menu-item:after{
-	margin-top: 10px;
+	margin-top: 8px;
 	display:block;
 	content:'';
 	border-bottom: solid 2px;
@@ -114,28 +115,29 @@ ul{
 }
 .footer .footer-urls ul{
 	padding:0px;
+	margin-top: 20px;
 }
 .footer .footer-urls ul li{
-	margin-left: 5px;
+	margin-left: 1px;
     display: inline-block;
 }
 .footer .footer-version{
-	font-size: 8px;
+	font-size: 9px;
 	padding-top: 25px;
 	text-align: end;
 }
 .footer .footer-urls a{
 	text-decoration: none;
-	font-size: 12px;
+	font-size: 11px;
 	text-align: center;
 	padding-top: 5px;
 	color: #ffffff;
 	display: inline-block;
 	width: 80px;
-	height: 28px;
+	height: 20px;
 }
 .footer .footer-urls a:after{
-	margin-top: 12px;
+	margin-top: 5px;
 	display:block;
 	content:'';
 	border-bottom: solid 2px;
@@ -220,7 +222,9 @@ ul{
 .page-form .form-row.buttons button{
 	float: right;
 	margin-left: 10px;
-	width: 30%;
+	padding: 8px;
+	font-size:12px;
+	width: 28%;
 }
 .page-form .vertical{
 	width: 100%;
@@ -286,18 +290,15 @@ textarea:focus{
 	border-bottom: 1px solid #222;
 }
 
-@media (max-width: 320px){
+@media (max-width:480px){
 	.nav-main {
 		width: 100%;
 		height: 250px;
 	}
 	.logo {
 		width: 80%;
-		margin-top: auto;
-		margin-right: auto;
-		margin-bottom: auto;
-		margin-left: auto;
-		padding-top: 30%;
+		margin: auto;
+		padding-top: 25%;
 	}
 	.logo-title {
 		font-size: 15px;
@@ -391,23 +392,33 @@ textarea:focus{
 	.menu_shown .nav-menu-mobile {
 	  transform: translateX(0);
 	}
+	.content-main .page-section{
+		margin:0px 30px 0px 0px;
+	}
 	.page-section .page-grid-2,.page-section .page-grid-3,.page-section .page-grid-4,.page-section .page-grid-5 {
 		grid-template-columns: auto;
 	}
 	.footer{
 		display: grid;
 		grid-template-columns: auto;
-		height: 200px;
+		height: 250px;
 	}
 	.footer .footer-version{
 		padding-top: 10px;
 	}
 	.footer .footer-urls{
-	text-align: none;
+		text-align: none;
+	}
+	.page-form.horizontal .form-row{
+		width: 99.8%;
+		margin: 5px 0px 5px 0;
+	}
+	.page-form .form-row p, .page-form .form-row.text-side label, .page-form .form-row h1, .page-form .form-row h2, .page-form .form-row h3, .page-form .form-row h4{
+		width: inherit;
 	}
 }
 
-@media (min-width: 321px) and (max-width: 767px){
+@media (min-width:480px) and (max-width:847px){
 	.nav-main {
 		width: 100%;
 		height: 240px;
@@ -420,11 +431,11 @@ textarea:focus{
 		font-size: 18px;
 	}
 	.nav-menu {
-    	margin-top: 5%;
+    	margin-top: 3%;
 	}
 }
 
-@media (min-width: 321px) and (max-width: 604px){
+@media (min-width:480px) and (max-width:684px){
 	.nav-menu{
 		padding-top: 0px;
 	}
@@ -437,6 +448,12 @@ textarea:focus{
 	.footer{
 		display: grid;
 		grid-template-columns: auto;
-		height: 180px;
+		height: 220px;
+	}
+}
+
+@media (max-width: 350px){
+	.logo {
+		padding-top: 40%;
 	}
 }
