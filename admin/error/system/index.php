@@ -1,24 +1,27 @@
 <!doctype html>
 <html>
 <?php
+// Set error mode
+$setmode=0x3E6;
+// Include Config
 require $_SERVER['DOCUMENT_ROOT']."/config/config.php";
 
 include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
 ?>
 <body>
 <!-- Navigation Main !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/navigation_error.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT']."/config/navigation.php"; ?>
 <div class="content-main">
     <div class="page-details">
-        <p><i class="fad fa-list"></i> <?php echo $_LANG['string_page_404_text']; ?></p>
-        <h4><?php echo $_LANG['string_page_404_summary']; ?></h4>
+        <p><i class="fad fa-exclamation-triangle"></i> <?php echo $_LANG['string_error_system_title']; ?></p>
+        <h4><?php echo $_LANG['string_error_system_title_summary']; ?></h4>
     </div>
     <div class="page-section">
-        <br><br>
+        <!-- Temporary Notes !-->
         <div style="text-align:center;">
-            <button onClick="history.back()" style="font-size:20px; width:160px; height:75px;"><?php echo $_LANG['string_back_text']; ?></button>
+            <h2><?php echo $_LANG['string_error_system_text']; ?></h2>
+            <p><?php echo $_LANG['string_error_system_text_summary']; ?></p>
         </div>
-        <br><br>
     </div>
 </div>
 <!-- Footer !-->

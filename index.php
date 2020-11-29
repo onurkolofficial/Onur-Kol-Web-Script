@@ -13,28 +13,28 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
 <?php include $_SERVER['DOCUMENT_ROOT']."/config/navigation.php"; ?>
 <div class="content-main">
     <div class="page-details">
-        <p><i class="fad fa-home"></i> <?php echo $homeText; ?></p>
-        <h4><?php echo $homePageSummary; ?></h4>
+        <p><i class="fad fa-home"></i> <?php echo $_LANG['string_home_text']; ?></p>
+        <h4><?php echo $_LANG['string_home_page_summary']; ?></h4>
     </div>
     <div class="page-section">
         <!-- Temporary Notes !-->
         <div style="text-align:center;">
-            <h2><?php echo $tempNoteReleaseNewWeb; ?></h2>
-            <p><?php echo $tempNoteSummary; ?></p>
+            <h2><?php echo $_LANG['string_tempNoteReleaseNewWeb']; ?></h2>
+            <p><?php echo $_LANG['string_tempNoteSummary']; ?></p>
         </div>
     </div>
     <div class="page-section">
-        <h2 class="page-title"><?php echo $propertiesText; ?></h2>
-        <p> - <?php echo $tempWebProperties1; ?></p>
-        <p> - <?php echo $tempWebProperties2; ?></p>
-        <p> - <?php echo $tempWebProperties3; ?></p>
-        <p> - <?php echo $tempWebProperties4; ?></p>
-        <p> - <?php echo $tempWebProperties5; ?></p>
-        <p> - <?php echo $tempWebProperties6; ?></p>
+        <h2 class="page-title"><?php echo $_LANG['string_properties_text']; ?></h2>
+        <p> - <?php echo $_LANG['string_tempWebProperties1']; ?></p>
+        <p> - <?php echo $_LANG['string_tempWebProperties2']; ?></p>
+        <p> - <?php echo $_LANG['string_tempWebProperties3']; ?></p>
+        <p> - <?php echo $_LANG['string_tempWebProperties4']; ?></p>
+        <p> - <?php echo $_LANG['string_tempWebProperties5']; ?></p>
+        <p> - <?php echo $_LANG['string_tempWebProperties6']; ?></p>
     </div>
     <div class="page-section">
-        <h2 class="page-title"><?php echo $applicationsText; ?></h2>
-        <p><?php echo $clickMyApplicationsNav; ?></p>
+        <h2 class="page-title"><?php echo $_LANG['string_applications_text']; ?></h2>
+        <p><?php echo $_LANG['string_click_my_applications_nav']; ?></p>
     </div>
 </div>
 <!-- Footer !-->

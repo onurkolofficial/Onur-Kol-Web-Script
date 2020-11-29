@@ -10,15 +10,15 @@ $mailSubject='Onur Kol Web Site: New Contact Mail';
 
 
 if(empty($name)){
-    echo '<script>alert("'.$contactEmptyName.'"); window.location.href="../";</script>';
+    echo '<script>alert("'.$_LANG['string_contact_empty_name'].'"); window.location.href="../";</script>';
 }
 else{
     if(empty($mail)){
-        echo '<script>alert("'.$contactEmptyMail.'"); window.location.href="../";</script>';
+        echo '<script>alert("'.$_LANG['string_contact_empty_mail'].'"); window.location.href="../";</script>';
     }
     else{
         if(empty($message)){
-            echo '<script>alert("'.$contactEmptyMessage.'"); window.location.href="../";</script>';
+            echo '<script>alert("'.$_LANG['string_contact_empty_message'].'"); window.location.href="../";</script>';
         }
         else{
             // Convert Data
@@ -27,10 +27,10 @@ else{
             $body = join(PHP_EOL, $bodyParagraphs);
             // Send Mail
             if (mail($adminMail, $mailSubject, $body, $headers)) {
-                echo '<script>alert("'.$contactSuccesSend.'"); window.location.href="../";</script>';
+                echo '<script>alert("'.$_LANG['string_contact_succes_send'].'"); window.location.href="../";</script>';
             }
             else{
-                echo '<script>alert("'.$contactErrorSend.'"); window.location.href="../";</script>';
+                echo '<script>alert("'.$_LANG['string_contact_error_send'].'"); window.location.href="../";</script>';
             }
         }
     }

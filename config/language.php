@@ -16,6 +16,17 @@ else{
     }
 }
 
-require $_SERVER['DOCUMENT_ROOT']."/language/".$langf.".php";
-
+// Convert Language strings (ini) to PHP Variables.
+$languagefile=$_SERVER['DOCUMENT_ROOT']."/language/".$langf.".ini";
+$langKeys=$Ini->Read($languagefile);
+foreach($langKeys as $pdkey => $pdval){
+    if(is_array($pdval)){
+        foreach($pdval as $plkey => $plval){
+            $_LANG[$pdkey][$plkey]=$plval;
+        }
+    }
+    else{
+        $_LANG[$pdkey]=$pdval;
+    }
+}
 ?>
