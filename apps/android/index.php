@@ -30,7 +30,7 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
                     <!-- App 1 !-->
                     <tr>
                         <td>
-                        <img width="85" height="85" src="https://play-lh.googleusercontent.com/AglfU72l0SY14GPEY9O5alLJ5pk2-2uTrva8PSRRTJLqc1x8Q9Fh1m3KJ692E57B8A=s180-rw">
+                        <img width="85" height="85" src="https://lh3.googleusercontent.com/AglfU72l0SY14GPEY9O5alLJ5pk2-2uTrva8PSRRTJLqc1x8Q9Fh1m3KJ692E57B8A">
                         </td>
                         <td style="width:100%;">
                             <div>
@@ -54,7 +54,7 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
                     <!-- App 2 !-->
                     <tr>
                         <td>
-                        <img width="85" height="85" src="https://play-lh.googleusercontent.com/WE6fa7l09X8wirhi_rdISPBmaSaxBpCUmJgl-qUUy6eXm9kF57hBK6VeD8JYJIfKyhM=s180-rw">
+                        <img width="85" height="85" src="https://lh3.googleusercontent.com/WE6fa7l09X8wirhi_rdISPBmaSaxBpCUmJgl-qUUy6eXm9kF57hBK6VeD8JYJIfKyhM">
                         </td>
                         <td style="width:100%;">
                             <div>
@@ -78,7 +78,7 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
                     <!-- App 3 !-->
                     <tr>
                         <td>
-                        <img width="85" height="85" src="https://play-lh.googleusercontent.com/3Au69aiMfSiG9spFPX9h47NyF_Q1w9EVKclKiHt7c7lZcJMdMs5-kzWx2epnHxmbRUc7=s180-rw">
+                        <img width="85" height="85" src="https://lh3.googleusercontent.com/pqHUig-YvNNjICPXOOuR3XPx_bNAEV5vMqmaQ2ZVoaT9thDU1AWzR2AtdSTlaY5wdTY">
                         </td>
                         <td style="width:100%;">
                             <div>
@@ -88,7 +88,7 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
                             </div>
                             <div style="text-align:end;">
                                 <div style="display:inline; text-align:end;">
-                                    <a href="https://github.com/onurkolofficial/Stone-Paper-Scissors_Game-Android">
+                                    <a href="https://github.com/onurkolofficial/Stone-Paper-Scissors-Game_Android">
                                         <button><?php echo $_LANG['string_source_text']; ?></button>
                                     </a>
                                     <a href="https://play.google.com/store/apps/details?id=com.onurkolofficial.spsgame">
