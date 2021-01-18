@@ -1,18 +1,34 @@
 <?php
 session_start();
 
-// Variables
-$site_version="1.1.0";
+// WebConfig Module
+require_once $_SERVER['DOCUMENT_ROOT']."/config/WebConfig/webconfig.php";
 
-// Loading Modules (Client)
-require_once $_SERVER['DOCUMENT_ROOT']."/config/client/ini.php";
-require_once $_SERVER['DOCUMENT_ROOT']."/config/client/keygen.php";
-// Loading Modules (Server)
-require_once $_SERVER['DOCUMENT_ROOT']."/config/server/server.php";
-require_once $_SERVER['DOCUMENT_ROOT']."/config/server/sql.php";
+use \WebConfig\Config as WebConfig;
+// Define Web Config Class
+$WebConfig=new WebConfig();
+///
+
+// PHPMailer Module
+require WebConfig::ConfigPath."/PHPMailer/src/Exception.php";
+require WebConfig::ConfigPath."/PHPMailer/src/PHPMailer.php";
+require WebConfig::ConfigPath."/PHPMailer/src/SMTP.php";
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+
+// Include All Tools
+foreach(glob(WebConfig::ModulesPath."/*.php") as $toolfile){
+    require_once $toolfile;
+}
+
+// Variables
+$site_version=WebConfig::Version;
 
 // Language Settings
-require $_SERVER['DOCUMENT_ROOT']."/config/language.php";
+require WebConfig::ConfigPath."/language.php";
 
 /*
 *********** FOR NEXT VERSION *************

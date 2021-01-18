@@ -1,8 +1,8 @@
 <?php
 // Language Settings
-$lang=$_GET['lang'];
+$lang=isset($_GET['lang']);
 $langf="";
-if(isset($lang)){
+if($lang){
     setcookie("language",$lang,time()+(86400*30), "/");
     $langf=$lang;
 }
