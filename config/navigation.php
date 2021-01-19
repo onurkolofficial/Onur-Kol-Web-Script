@@ -4,36 +4,50 @@
   	<p class="logo-title"><?php echo $_LANG['string_welcome_text']; ?></p>
 	<!-- Menu !-->
 	<a class="menu-icon mobile"><span></span></a>
-	<ul class="nav-menu">
-        <?php if(isset($setmode) && ($setmode==0x3E7 || $setmode==0x3E6)){ echo ""; } else { ?>
-        <li><a <?php if($page=="home"){ echo 'href="#" class="menu-item active"'; }else{echo 'href="/" class="menu-item"'; } ?>>
-            <?php echo $_LANG['string_home_text']; ?>
-        </a></li>
-        <li><a <?php if($page=="apps"){ echo 'href="#" class="menu-item active"'; }else{echo 'href="/apps" class="menu-item"'; } ?>>
-            <?php echo $_LANG['string_applications_text']; ?>
-        </a></li>
-        <li><a <?php if($page=="about"){ echo 'href="#" class="menu-item active"'; }else{echo 'href="/about" class="menu-item"'; } ?>>
-            <?php echo $_LANG['string_about_text']; ?>
-        </a></li>
-        <li><a <?php if($page=="contact"){ echo 'href="#" class="menu-item active"'; }else{echo 'href="/contact" class="menu-item"'; } ?>>
-            <?php echo $_LANG['string_contact_text']; ?>
-        </a></li>
-        <?php } ?>
+    <?php
+        // Create Menu Item
+        $MenuItem=array();
+        // Check Site Setup Mode Navigation Menu.
+        if(isset($ServerEditMode) && $ServerEditMode==true){
+            // EMPTY
+        } 
+        else {
+            // Get Database 'sitemenu' Table
+            $QueryResult=$WebConfig->Query("SELECT * FROM sitemenu ORDER BY 'ItemIndex' ASC");
+            // Get Menu
+            while($Row=$WebConfig->FetchAssoc($QueryResult)){
+                if($page==$Row['ItemId'])
+                    $itemData='href="#" class="menu-item active"';
+                else
+                    $itemData='href="'.$Row['ItemUrl'].'" class="menu-item"';
+
+                // Check ItemText exists to Language Key.
+                $itemText="";
+                $itemLanguageKey=trim($Row['ItemText'],"$");
+                // Check Language Key.
+                if(isset($_LANG[$itemLanguageKey]))
+                    $itemText=$_LANG[$itemLanguageKey];
+                else
+                    $itemText=$Row['ItemText'];
+
+                $MenuItem[count($MenuItem)]='<li><a '.$itemData.'>'.$itemText.'</a></li>';
+            }
+        }
+    ?>
+    <ul class="nav-menu">
+        <?php
+            // Print Items
+            foreach($MenuItem as $Value){
+                echo $Value;
+            }
+        ?>
     </ul>
     <ul class="nav-menu-mobile">
-        <?php if(isset($setmode) && ($setmode==0x3E7 || $setmode==0x3E6)){ echo ""; } else { ?>
-        <li><a <?php if($page=="home"){ echo 'href="#" class="menu-item active"'; }else{echo 'href="/" class="menu-item"'; } ?>>
-            <?php echo $_LANG['string_home_text']; ?>
-        </a></li>
-        <li><a <?php if($page=="apps"){ echo 'href="#" class="menu-item active"'; }else{echo 'href="/apps" class="menu-item"'; } ?>>
-            <?php echo $_LANG['string_applications_text']; ?>
-        </a></li>
-        <li><a <?php if($page=="about"){ echo 'href="#" class="menu-item active"'; }else{echo 'href="/about" class="menu-item"'; } ?>>
-            <?php echo $_LANG['string_about_text']; ?>
-        </a></li>
-        <li><a <?php if($page=="contact"){ echo 'href="#" class="menu-item active"'; }else{echo 'href="/contact" class="menu-item"'; } ?>>
-            <?php echo $_LANG['string_contact_text']; ?>
-        </a></li>
-        <?php } ?>
+        <?php
+            // Print Items
+            foreach($MenuItem as $Value){
+                echo $Value;
+            }
+        ?>
     </ul>
 </div>

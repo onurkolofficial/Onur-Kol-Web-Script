@@ -1,40 +1,38 @@
 <?php
-// Copyright (c) 2020 by Onur KOL
+// Copyright (c) 2021 by Onur KOL
+// Use Modules.
+use \WebConfig\Config as WebConfig;
 
-// Check server configuration file exist.
-$get_server_file=$_SERVER['DOCUMENT_ROOT']."/config/server/connect.ini";
+// Check Connect Configuration File
+$ConnectIniFile=WebConfig::ConnectPath."/connect.ini";
 
-if(file_exists($get_server_file)){
-    $dbinf=$Ini->Read($get_server_file);
-
+if(file_exists($ConnectIniFile)){
+    // Get Informations from connect.ini file
+    $GetConnectInfoFromIni=$Ini->Read($ConnectIniFile);
+    // Get Values
+    $Server=$GetConnectInfoFromIni['db_server'];
+    $User=$GetConnectInfoFromIni['db_user'];
+    $Password=$GetConnectInfoFromIni['db_password'];
+    $Database=$GetConnectInfoFromIni['db_name'];
     // Check Server Connection
-    $Connect=$Server->ConnectDatabase($dbinf['db_server'],$dbinf['db_user'],$dbinf['db_password'],$dbinf['db_name']);
-    if (!$Connect) {
-        $Server->Info="failed";
-        $Server->Status=0x0;
+    $WebConfig->SetConnectInfo($Server,$User,$Password,$Database);
+    if(!$WebConfig->Connect()){
+        // Fixed Redirect Loop (for Setup Server)
+        if(!isset($ServerEditMode)){
+            // Connection Failed. Open Web Server Setup.
+            header("Location: /admin/setup/");
+        }
     }
     else{
-        $Server->Info="connected";
-        $Server->Status=0x1;
+        // Connection Success.
+        if(isset($ServerEditMode) && $ServerEditMode==true){
+            // If tried open setup mode to redirect home page.
+            header("Location: /");
+        }
     }
 }
 else{
-    $Server->Info="filenotfound";
-    $Server->Status=0x4;
-}
-
-// Check Connection Status
-if($Server->$Status==0x1){
-    // Success Connection
-    // NULL
-}
-else if($Server->$Status==0x4){
-    // Server File Not Found
+    // 'connect.ini' File Not Found. Open System Error.
     header("Location: /admin/error/system/");
 }
-else{
-    // Connect Failed.
-    header("Location: /admin/setup/");
-}
-
 ?>

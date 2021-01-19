@@ -1,16 +1,20 @@
 <!doctype html>
 <html>
 <?php
+// Include Main Config
 require $_SERVER['DOCUMENT_ROOT']."/config/config.php";
+
+// Use Modules.
+use \WebConfig\Config as WebConfig;
 
 // Set active page
 $page="contact";
 
-include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
+require WebConfig::ConfigPath."/head.php";
 ?>
 <body>
 <!-- Navigation Main !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/navigation.php"; ?>
+<?php require WebConfig::ConfigPath."/navigation.php"; ?>
 <div class="content-main">
     <div class="page-details">
         <p><i class="fad fa-list"></i> <?php echo $_LANG['string_contact_text']; ?></p>
@@ -47,11 +51,16 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
 			<div></div>
 		</div>
     </div>
-    
 </div>
-<!-- Footer !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/footer.php"; ?>
-<!-- Scripts !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/scripts.php"; ?>
+<?php 
+// Footer
+require WebConfig::ConfigPath."/footer.php";
+// Scripts
+require WebConfig::ConfigPath."/scripts.php"; 
+?>
 </body>
 </html>
+<?php
+// Stop Connection
+$WebConfig->Disconnect();
+?>
