@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Oca 2021, 20:21:37
+-- Üretim Zamanı: 21 Oca 2021, 00:25:45
 -- Sunucu sürümü: 10.4.13-MariaDB
 -- PHP Sürümü: 7.4.8
 
@@ -32,6 +32,13 @@ CREATE TABLE `admin` (
   `UserName` varchar(140) NOT NULL,
   `Root` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `admin`
+--
+
+INSERT INTO `admin` (`UserId`, `UserName`, `Root`) VALUES
+('NAcGR4q0LOxEC5Q3ImubyBvlFsriZ2SwaHekUTgtnXhVjD6871', 'onurkol4161', 1);
 
 -- --------------------------------------------------------
 
@@ -92,20 +99,19 @@ CREATE TABLE `sitemenu` (
   `ItemText` varchar(100) NOT NULL,
   `ItemUrl` varchar(150) NOT NULL,
   `ItemIndex` int(10) NOT NULL,
-  `ItemId` varchar(50) NOT NULL,
-  `ItemAdmin` tinyint(1) NOT NULL
+  `ItemMenuId` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Tablo döküm verisi `sitemenu`
 --
 
-INSERT INTO `sitemenu` (`id`, `ItemText`, `ItemUrl`, `ItemIndex`, `ItemId`, `ItemAdmin`) VALUES
-(1, '$string_home_text$', '/', 1, 'home', 0),
-(2, '$string_applications_text$', '/apps', 2, 'apps', 0),
-(3, '$string_about_text$', '/about', 3, 'about', 0),
-(4, '$string_contact_text$', '/contact', 4, 'contact', 0),
-(5, 'TEST MENU', '/', 5, 'test', 0);
+INSERT INTO `sitemenu` (`id`, `ItemText`, `ItemUrl`, `ItemIndex`, `ItemMenuId`) VALUES
+(1, '$string_home_text$', '/', 1, 'home'),
+(2, '$string_applications_text$', '/apps', 2, 'apps'),
+(3, '$string_about_text$', '/about', 3, 'about'),
+(4, '$string_contact_text$', '/contact', 4, 'contact'),
+(5, 'TEST MENU', '/', 5, 'test');
 
 -- --------------------------------------------------------
 
@@ -126,6 +132,13 @@ CREATE TABLE `users` (
   `UserPhone` varchar(40) NOT NULL,
   `UserRegisterDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `users`
+--
+
+INSERT INTO `users` (`id`, `UserFirstName`, `UserLastName`, `UserName`, `UserPassword`, `UserMail`, `UserImage`, `UserCountry`, `UserAddress`, `UserPhone`, `UserRegisterDate`) VALUES
+('NAcGR4q0LOxEC5Q3ImubyBvlFsriZ2SwaHekUTgtnXhVjD6871', 'Onur', 'Kol', 'onurkol4161', '629f5862ef52febdaa2e45b8b124ec98', 'onurkol4161@gmail.com', 'DEFAULT', 'Turkey', '', '+90 536 590 2876', '2021-01-20 20:25:02');
 
 -- --------------------------------------------------------
 

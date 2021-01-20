@@ -5,6 +5,12 @@
 	<!-- Menu !-->
 	<a class="menu-icon mobile"><span></span></a>
 	<ul class="nav-menu">
+        <!-- Web Home !-->
+        <li>
+            <a href="/" class="menu-item">
+                <?php echo $_LANG['string_home_text']; ?>
+            </a>
+        </li>
         <!-- Panel Home !-->
         <li>
             <a href="/admin/" class="menu-item">
@@ -53,6 +59,12 @@
         </li>
     </ul>
     <ul class="nav-menu-mobile">
+        <!-- Web Home !-->
+        <li>
+            <a href="/" class="menu-item">
+                <?php echo $_LANG['string_home_text']; ?>
+            </a>
+        </li>
         <!-- Panel Home !-->
         <li>
             <a href="/admin/" class="menu-item">

@@ -16,7 +16,7 @@
             $QueryResult=$WebConfig->Query("SELECT * FROM `sitemenu` ORDER BY `ItemIndex` ASC");
             // Get Menu
             while($Row=$WebConfig->FetchAssoc($QueryResult)){
-                if($page==$Row['ItemId'])
+                if($page==$Row['ItemMenuId'])
                     $itemData='href="#" class="menu-item active"';
                 else
                     $itemData='href="'.$Row['ItemUrl'].'" class="menu-item"';
@@ -40,6 +40,16 @@
             foreach($MenuItem as $Value){
                 echo $Value;
             }
+            // Check Account Items
+            $AccountSession=$WebConfig->GetSessionExist('UserID');
+            if($AccountSession){
+                // Now Check Admin Account.
+                $QueryResult=$WebConfig->Query("SELECT * FROM `admin` WHERE UserId='$AccountSession'");
+                if($WebConfig->NumRows($QueryResult)<=0){
+                    echo '<li><a href="/admin/" class="menu-item">'.$_LANG['string_admin_text'].'</a></li>';
+                }
+                echo '<li><a href="/logout/" class="menu-item">'.$_LANG['string_logout_text'].'</a></li>';
+            }
         ?>
     </ul>
     <ul class="nav-menu-mobile">
@@ -47,6 +57,16 @@
             // Print Items
             foreach($MenuItem as $Value){
                 echo $Value;
+            }
+            // Check Account Items
+            $AccountSession=$WebConfig->GetSessionExist('UserID');
+            if($AccountSession){
+                // Now Check Admin Account.
+                $QueryResult=$WebConfig->Query("SELECT * FROM `admin` WHERE UserId='$AccountSession'");
+                if($WebConfig->NumRows($QueryResult)<=0){
+                    echo '<li><a href="/admin/" class="menu-item">'.$_LANG['string_admin_text'].'</a></li>';
+                }
+                echo '<li><a href="/logout/" class="menu-item">'.$_LANG['string_logout_text'].'</a></li>';
             }
         ?>
     </ul>
