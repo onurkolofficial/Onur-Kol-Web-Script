@@ -19,7 +19,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
-
 // Include All Tools
 foreach(glob(WebConfig::ModulesPath."/*.php") as $toolfile){
     require $toolfile;

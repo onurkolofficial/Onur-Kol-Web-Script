@@ -8,12 +8,12 @@
         // Create Menu Item
         $MenuItem=array();
         // Check Site Setup Mode Navigation Menu.
-        if(isset($ServerEditMode) && $ServerEditMode==true){
+        if(isset($ServerEditMode) && $ServerEditMode==true || isset($LoginPage) && $LoginPage==true){
             // EMPTY
         } 
         else {
             // Get Database 'sitemenu' Table
-            $QueryResult=$WebConfig->Query("SELECT * FROM sitemenu ORDER BY 'ItemIndex' ASC");
+            $QueryResult=$WebConfig->Query("SELECT * FROM `sitemenu` ORDER BY `ItemIndex` ASC");
             // Get Menu
             while($Row=$WebConfig->FetchAssoc($QueryResult)){
                 if($page==$Row['ItemId'])

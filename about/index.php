@@ -3,14 +3,17 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT']."/config/config.php";
 
+// Use Modules.
+use \WebConfig\Config as WebConfig;
+
 // Set active page
 $page="about";
 
-include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
+require WebConfig::ConfigPath."/head.php";
 ?>
 <body>
 <!-- Navigation Main !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/navigation.php"; ?>
+<?php require WebConfig::ConfigPath."/navigation.php"; ?>
 <div class="content-main">
     <div class="page-details">
         <p><i class="fad fa-info"></i> <?php echo $_LANG['string_about_text']; ?></p>
@@ -21,35 +24,38 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
         <p class="page-title"><?php echo $_LANG['string_version_history_summary']; ?></p>
         <h2><?php echo $_LANG['string_versions_text']; ?></h2>
     </div>
-    <!-- Version 1.1.0 !-->
-    <div class="page-section">
-        <h2 class="page-title">1.1.0</h2>
-        <p> - <?php echo $_LANG['string_tempVersion110Properties1']; ?></p>
-        <p> - <?php echo $_LANG['string_tempVersion110Properties2']; ?></p>
-        <p> - <?php echo $_LANG['string_tempVersion110Properties3']; ?></p>
-    </div>
-    <!-- Version 1.0.1 !-->
-    <div class="page-section">
-        <h2 class="page-title">1.0.1</h2>
-        <p> - <?php echo $_LANG['string_tempVersion101Properties1']; ?></p>
-        <p> - <?php echo $_LANG['string_tempVersion101Properties2']; ?></p>
-        <p> - <?php echo $_LANG['string_tempVersion101Properties3']; ?></p>
-        <p> - <?php echo $_LANG['string_tempVersion101Properties4']; ?></p>
-    </div>
-    <!-- Version 1.0.0 !-->
-    <div class="page-section">
-        <h2 class="page-title">1.0.0</h2>
-        <p> - <?php echo $_LANG['string_tempWebProperties1']; ?></p>
-        <p> - <?php echo $_LANG['string_tempWebProperties2']; ?></p>
-        <p> - <?php echo $_LANG['string_tempWebProperties3']; ?></p>
-        <p> - <?php echo $_LANG['string_tempWebProperties4']; ?></p>
-        <p> - <?php echo $_LANG['string_tempWebProperties5']; ?></p>
-        <p> - <?php echo $_LANG['string_tempWebProperties6']; ?></p>
-    </div>
+    <?php
+        // Get Version Log
+        $QueryResult=$WebConfig->Query("SELECT * FROM `versionlog` ORDER BY `VersionReleaseDate` DESC");
+        // Print Version Log
+        while($Row=$WebConfig->FetchAssoc($QueryResult)){
+            $VersionName=$Row['VersionName'];
+            // Check VersionText exists to Language Key.
+            $VersionText="";
+            $verLanguageKey=trim($Row['VersionText'],"$");
+            // Check Language Key.
+            if(isset($_LANG[$verLanguageKey])){
+                // Convert '\n' to '<br>'.
+                $FixedNewLine=$_LANG[$verLanguageKey];
+                // Replace
+                $VersionText=str_replace('\n','<br>',$FixedNewLine);
+            }
+            else
+                $VersionText=$Row['VersionText'];
+
+            // Print Version Log
+            echo '<div class="page-section">
+            <h2 class="page-title">'.$VersionName.'</h2>
+            <p>'.$VersionText.'</p>
+        </div>';
+        }
+    ?>
 </div>
-<!-- Footer !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/footer.php"; ?>
-<!-- Scripts !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/scripts.php"; ?>
+<?php 
+// Footer
+require WebConfig::ConfigPath."/footer.php";
+// Scripts
+require WebConfig::ConfigPath."/scripts.php"; 
+?>
 </body>
 </html>

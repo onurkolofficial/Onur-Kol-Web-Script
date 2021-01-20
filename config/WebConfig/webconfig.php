@@ -222,5 +222,43 @@ class Config {
         return mysqli_num_rows($QueryResult);
     }
 
+    ///!
+    // WebConfig Session & Cookie Methods
+    ///!
+    public function SetCookie($CookieName,$CookieValue,$CookieTime=null,$CookiePath=null){
+        if($CookieTime==null)
+            $CookieTime=time()+(86400*30);
+        if($CookiePath==null)
+            $CookiePath="/";
+        // Set Cookie
+        setcookie($CookieName,$CookieValue,$CookieTime, $CookiePath);
+        return isset($_COOKIE[$CookieName]);
+    }
+    public function GetCookie($CookieName){
+        if(isset($_COOKIE[$CookieName]))
+            return $_COOKIE[$CookieName];
+        else
+            return false;
+    }
+    public function GetCookieExist($CookieName){
+        return isset($_COOKIE[$CookieName]);
+    }
+    public function SetSession($SessionName,$SessionValue){
+        return $_SESSION[$SessionName]=$SessionValue;
+    }
+    public function GetSession($SessionName){
+        if(isset($_SESSION[$SessionName]))
+            return $_SESSION[$SessionName];
+        else
+            return false;
+    }
+    public function GetSessionExist($SessionName){
+        return isset($_SESSION[$SessionName]);
+    }
+    public function CloseSession(){
+        return session_destroy();
+    }
+
+
 }
 ?>

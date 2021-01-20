@@ -36,8 +36,8 @@ require WebConfig::ConfigPath."/head.php";
 						<input name="user" <?php echo 'placeholder="'.$_LANG['string_username_text'].'"'; ?> type="text">
 					</div>
 					<div class="form-row">
-                        <p><i class="fad fa-key"></i> <?php echo $_LANG['string_passowrd_text']; ?></p>
-						<input name="password" <?php echo 'placeholder="'.$_LANG['string_passowrd_text'].'"'; ?> type="password">
+                        <p><i class="fad fa-key"></i> <?php echo $_LANG['string_password_text']; ?></p>
+						<input name="password" <?php echo 'placeholder="'.$_LANG['string_password_text'].'"'; ?> type="password">
                     </div>
                     <div class="form-row">
                         <p><i class="fad fa-database"></i> <?php echo $_LANG['string_database_name_text']; ?></p>

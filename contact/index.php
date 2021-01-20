@@ -60,7 +60,3 @@ require WebConfig::ConfigPath."/scripts.php";
 ?>
 </body>
 </html>
-<?php
-// Stop Connection
-$WebConfig->Disconnect();
-?>

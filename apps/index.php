@@ -1,16 +1,20 @@
 <!doctype html>
 <html>
 <?php
+// Include Main Config
 require $_SERVER['DOCUMENT_ROOT']."/config/config.php";
+
+// Use Modules.
+use \WebConfig\Config as WebConfig;
 
 // Set active page
 $page="apps";
 
-include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
+require WebConfig::ConfigPath."/head.php";
 ?>
 <body>
 <!-- Navigation Main !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/navigation.php"; ?>
+<?php require WebConfig::ConfigPath."/navigation.php"; ?>
 <div class="content-main">
     <div class="page-details">
         <p><i class="fad fa-arrow-alt-circle-down"></i> <?php echo $_LANG['string_applications_text']; ?></p>
@@ -24,25 +28,37 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
     </div>
     <div class="page-section">
         <div class="page-category-list">
-			<div class="category-item">
-                <a href="android/">
-                    <button class="category-button"><?php echo $_LANG['string_android_apps_text']; ?></button>
-                </a>
-            </div>
-            <!--
-			<div class="category-item">
-				<button class="category-button">Category 2 Name</button>
-			</div>
-			<div class="category-item">
-				<button class="category-button">Category 3 Name</button>
-            </div>
-            !-->
+            <?php
+                // Get Database 'appcategories' Table
+                $QueryResult=$WebConfig->Query("SELECT * FROM `appcategories` ORDER BY `CategoryIndex` ASC");
+
+                // Print Categories
+                while($Row=$WebConfig->FetchAssoc($QueryResult)){
+                    $CategoryId=$Row['CategoryId'];
+                    // Check CategoryName exists to Language Key.
+                    $categoryText="";
+                    $categoryLanguageKey=trim($Row['CategoryName'],"$");
+                    // Check Language Key.
+                    if(isset($_LANG[$categoryLanguageKey]))
+                        $categoryText=$_LANG[$categoryLanguageKey];
+                    else
+                        $categoryText=$Row['CategoryName'];
+
+                    echo '<div class="category-item">
+                    <a href="applist/?cat='.$CategoryId.'">
+                        <button class="category-button">'.$categoryText.'</button>
+                    </a>
+                </div>';
+                }
+            ?>
 		</div>
     </div>
 </div>
-<!-- Footer !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/footer.php"; ?>
-<!-- Scripts !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/scripts.php"; ?>
+<?php 
+// Footer
+require WebConfig::ConfigPath."/footer.php";
+// Scripts
+require WebConfig::ConfigPath."/scripts.php"; 
+?>
 </body>
 </html>
