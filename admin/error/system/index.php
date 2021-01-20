@@ -6,11 +6,14 @@ $setmode=0x3E6;
 // Include Config
 require $_SERVER['DOCUMENT_ROOT']."/config/config.php";
 
-include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
+// Use Modules.
+use \WebConfig\Config as WebConfig;
+
+require WebConfig::ConfigPath."/head.php";
 ?>
 <body>
 <!-- Navigation Main !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/navigation.php"; ?>
+<?php require WebConfig::ConfigPath."/navigation.php"; ?>
 <div class="content-main">
     <div class="page-details">
         <p><i class="fad fa-exclamation-triangle"></i> <?php echo $_LANG['string_error_system_title']; ?></p>
@@ -24,9 +27,11 @@ include $_SERVER['DOCUMENT_ROOT']."/config/head.php";
         </div>
     </div>
 </div>
-<!-- Footer !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/footer.php"; ?>
-<!-- Scripts !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/scripts.php"; ?>
+<?php 
+// Footer
+require WebConfig::ConfigPath."/footer.php";
+// Scripts
+require WebConfig::ConfigPath."/scripts.php"; 
+?>
 </body>
 </html>

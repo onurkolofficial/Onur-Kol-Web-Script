@@ -10,12 +10,10 @@ require $_SERVER['DOCUMENT_ROOT']."/config/config.php";
 use \WebConfig\Config as WebConfig;
 
 require WebConfig::ConfigPath."/head.php";
-
 ?>
 <body>
 <!-- Navigation Main !-->
 <?php require WebConfig::ConfigPath."/navigation.php"; ?>
-
 <div class="content-main">
     <div class="page-details">
         <p><i class="fad fa-home"></i> <?php echo $_LANG['string_setup_title']; ?></p>
@@ -53,9 +51,11 @@ require WebConfig::ConfigPath."/head.php";
 		</div>
     </div>
 </div>
-<!-- Footer !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/footer.php"; ?>
-<!-- Scripts !-->
-<?php include $_SERVER['DOCUMENT_ROOT']."/config/scripts.php"; ?>
+<?php 
+// Footer
+require WebConfig::ConfigPath."/footer.php";
+// Scripts
+require WebConfig::ConfigPath."/scripts.php"; 
+?>
 </body>
 </html>
