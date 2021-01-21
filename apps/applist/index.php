@@ -60,7 +60,7 @@ require WebConfig::ConfigPath."/head.php";
                     <tbody>
                         <?php
                         // Get Category Name
-                        $QueryResult=$WebConfig->Query("SELECT * FROM `applications` WHERE CategoryId='$CategoryId' ORDER BY `AppReleaseDate` ASC");
+                        $QueryResult=$WebConfig->Query("SELECT * FROM `applications` WHERE CategoryId='$CategoryId' ORDER BY `AppReleaseDate` DESC");
                         // Print Applications
                         while($Row=$WebConfig->FetchAssoc($QueryResult)){
                             $AppName=$Row['AppName'];

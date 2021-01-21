@@ -21,18 +21,52 @@ require WebConfig::ConfigPath."/head.php";
 <?php require WebConfig::ConfigPath."/navigation_admin.php"; ?>
 <div class="content-main">
     <div class="page-details">
-        <p><i class="fad fa-home"></i> <?php echo $_LANG['string_menu_settings_text']; ?></p>
+        <p><i class="fad fa-ellipsis-v"></i> <?php echo $_LANG['string_menu_settings_text']; ?></p>
         <h4><?php echo $_LANG['string_menu_settings_summary']; ?></h4>
     </div>
     <div class="page-section">
-        <!-- Temporary Notes !-->
+        <!-- Action Buttons !-->
         <div>
             <button id="newMenuBtn" style="font-size:14px; width:150px; height:60px;"><?php echo $_LANG['string_new_menuitem_text']; ?></button>
         </div>
     </div>
     <div id="newMenuPage" class="page-section">
-        <h2 class="page-title">NEW_MENU_PAGE </h2>
-        <p>NEW_MENU_CONTENT</p>
+        <h2 class="page-title"><?php echo $_LANG['string_add_new_menu_item']; ?></h2>
+        <br>
+        <div class="page-grid-3">
+            <!-- Grid 1 !-->
+            <div></div>
+            <!-- Grid 2 !-->
+			<div class="table-res">
+                <form action="new/" method="POST">
+                    <table class="table-stripe">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input name="text" <?php echo 'placeholder="'.$_LANG['string_itemtext_text'].'"'; ?> type="text">
+                                </td>
+                                <td>
+                                    <input name="url" <?php echo 'placeholder="'.$_LANG['string_item_url_text'].'"'; ?> type="text">
+                                </td>
+                                <td>
+                                    <input name="index" <?php echo 'placeholder="'.$_LANG['string_item_index_text'].'"'; ?> type="text">
+                                </td>
+                                <td>
+                                    <input name="menuid" <?php echo 'placeholder="'.$_LANG['string_item_menuid_text'].'"'; ?> type="text">
+                                </td>
+                                <td>
+                                    <input <?php echo 'value="'.$_LANG['string_add_text'].'"'; ?> type="submit">
+                                </td>
+                            </tr>
+                        <tbody>
+                    </table>
+                </form>
+                <br>
+            </div>
+            <!-- Grid 3 !-->
+			<div></div>
+        </div>
+        <br>
     </div>
     <div class="page-section">
         <div class="page-grid-3">
@@ -71,9 +105,14 @@ require WebConfig::ConfigPath."/head.php";
                             <td>'.$ItemUrl.'</td>
                             <td>'.$ItemIndex.'</td>
                             <td>'.$ItemMenuId.'</td>
-                            <td>EDIT_BTN</td>
-                            <td>DELETE_BTN</td>
-                        </tr>';  
+                            <td>
+                                <a href="edit/?id='.$ItemId.'">
+                                    <input value="'.$_LANG['string_edit_text'].'" type="button">
+                                </a>
+                            </td>
+                            <td>
+                                <input onClick="deleteMenuItem(`'.$ItemId.'`,`'.$_LANG['string_sure_delete_item'].'`)" value="'.$_LANG['string_delete_text'].'" type="button">
+                            </tr>';  
                         }
                         ?>
                     <tbody>
@@ -85,13 +124,13 @@ require WebConfig::ConfigPath."/head.php";
         </div>
     </div>
 </div>
-<!-- Get Basic Script !-->
-<script src="menuscript.js"></script>
 <?php 
 // Footer
 require WebConfig::ConfigPath."/footer.php";
 // Scripts
 require WebConfig::ConfigPath."/scripts.php"; 
 ?>
+<!-- Get Basic Script !-->
+<script src="menuscript.js"></script>
 </body>
 </html>

@@ -230,7 +230,7 @@ a{
 	margin: 5px 10px 5px 0;
 }
 .page-form .form-row p, .page-form .form-row.text-side label, .page-form .form-row h1, .page-form .form-row h2, .page-form .form-row h3, .page-form .form-row h4{
-	width: 160px;
+	width: auto;
 	padding-top: 8px;
 	margin: 5px 10px 5px 0;
 }
@@ -265,6 +265,66 @@ a{
 .page-form.vertical .form-row{
     display: block;
     width: 95%;
+}
+
+
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: none;
+  background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #fff;
+  overflow: hidden;
+  border-radius: .25em;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #222;
+  cursor: pointer;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #ddd;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select:hover{
+	-webkit-transition: .25s all ease;
+	-o-transition: .25s all ease;
+	transition: .25s all ease;
+	background: #ccc;
+}
+.select:hover::after {
+	background: #9a9a9a;
+	color: #dfdfdf;
 }
 input{
 	vertical-align: middle;

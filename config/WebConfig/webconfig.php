@@ -221,6 +221,9 @@ class Config {
     public function NumRowsDump($QueryResult){
         return mysqli_num_rows($QueryResult);
     }
+    public function ConnectError(){
+        return mysqli_error($this->ConnectStatus);
+    }
 
     ///!
     // WebConfig Session & Cookie Methods
