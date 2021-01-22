@@ -5,15 +5,15 @@ var ShowNewCategoryPage=true;
 
 // On Click Events
 $('#newCategoryBtn').click(function(){
-    if(ShowNewMenuPage){
+    if(ShowNewCategoryPage){
         // Hide Page
         $('#newCategoryPage').hide();
-        ShowNewMenuPage=false;
+        ShowNewCategoryPage=false;
     }
     else{
         // Show Page
         $('#newCategoryPage').show();
-        ShowNewMenuPage=true;
+        ShowNewCategoryPage=true;
     }
 });
 

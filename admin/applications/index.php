@@ -42,11 +42,12 @@ require WebConfig::ConfigPath."/head.php";
                 <table class="table-stripe">
                     <thead>
                         <tr>
-                            <th style="text-align:left;" colspan="6"><?php echo $_LANG['string_applications_text']; ?></th>
+                            <th style="text-align:left;" colspan="7"><?php echo $_LANG['string_applications_text']; ?></th>
                         </tr>
                         <tr>
                             <th><?php echo $_LANG['string_application_image_text']; ?></th>
                             <th><?php echo $_LANG['string_application_name_author_text']; ?></th>
+                            <th><?php echo $_LANG['string_application_category_text']; ?></th>
                             <th><?php echo $_LANG['string_application_source_text']; ?></th>
                             <th><?php echo $_LANG['string_application_download_text']; ?></th>
                             <th colspan="2">&nbsp;</th>
@@ -59,6 +60,7 @@ require WebConfig::ConfigPath."/head.php";
                         // Print Applications
                         while($Row=$WebConfig->FetchAssoc($QueryResult)){
                             $AppId=$Row['AppId'];
+                            $AppCategoryId=$Row['CategoryId'];
                             $AppName=$Row['AppName'];
                             $AppAuthor=$Row['AppAuthor'];
                             $AppImage=$Row['AppImage'];
@@ -68,7 +70,7 @@ require WebConfig::ConfigPath."/head.php";
                             <td rowspan="2">
                                 <img width="85" height="85" src="'.$AppImage.'">
                             </td>
-                            <td colspan="5">
+                            <td colspan="6">
                                 <b>'.$AppName.'</b>
                             </td>
                         </tr>
@@ -77,10 +79,13 @@ require WebConfig::ConfigPath."/head.php";
                                 <small>'.$AppAuthor.'</small>
                             </td>
                             <td>
-                                <small>'.substr($AppSource,0,40).'</small>
+                                <small>'.$AppCategoryId.'</small>
                             </td>
                             <td>
-                                <small>'.substr($AppDownload,0,40).'</small>
+                                <small>'.substr($AppSource,0,32).'</small>
+                            </td>
+                            <td>
+                                <small>'.substr($AppDownload,0,32).'</small>
                             </td>
                             <td>
                                 <a href="edit/?id='.$AppId.'">

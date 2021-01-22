@@ -41,11 +41,11 @@
                 echo $Value;
             }
             // Check Account Items
-            $AccountSession=$WebConfig->GetSessionExist('UserID');
-            if($AccountSession){
+            $AccountSession=$WebConfig->GetSession('UserID');
+            if($WebConfig->GetSessionExist('UserID')){
                 // Now Check Admin Account.
                 $QueryResult=$WebConfig->Query("SELECT * FROM `admin` WHERE UserId='$AccountSession'");
-                if($WebConfig->NumRows($QueryResult)<=0){
+                if($WebConfig->NumRows($QueryResult)>0){
                     echo '<li><a href="/admin/" class="menu-item">'.$_LANG['string_admin_text'].'</a></li>';
                 }
                 echo '<li><a href="/logout/" class="menu-item">'.$_LANG['string_logout_text'].'</a></li>';
@@ -59,11 +59,11 @@
                 echo $Value;
             }
             // Check Account Items
-            $AccountSession=$WebConfig->GetSessionExist('UserID');
-            if($AccountSession){
+            $AccountSession=$WebConfig->GetSession('UserID');
+            if($WebConfig->GetSessionExist('UserID')){
                 // Now Check Admin Account.
                 $QueryResult=$WebConfig->Query("SELECT * FROM `admin` WHERE UserId='$AccountSession'");
-                if($WebConfig->NumRows($QueryResult)<=0){
+                if($WebConfig->NumRows($QueryResult)>0){
                     echo '<li><a href="/admin/" class="menu-item">'.$_LANG['string_admin_text'].'</a></li>';
                 }
                 echo '<li><a href="/logout/" class="menu-item">'.$_LANG['string_logout_text'].'</a></li>';

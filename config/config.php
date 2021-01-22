@@ -24,12 +24,18 @@ foreach(glob(WebConfig::ModulesPath."/*.php") as $toolfile){
     require $toolfile;
 }
 
-// Variables
-$site_version=WebConfig::Version;
-
 // Language Settings
 require WebConfig::ConfigPath."/language.php";
 // Database Connection
 require WebConfig::ConnectPath."/connect.php";
+
+// Variables
+// Get Site Version
+$QueryResult=$WebConfig->Query("SELECT * FROM `versionlog` ORDER BY `VersionReleaseDate` DESC");
+$Row=$WebConfig->FetchAssoc($QueryResult);
+if(isset($Row['VersionName']))
+    $WebVersion=$Row['VersionName'];
+else
+    $WebVersion="0.0.0";
 
 ?>

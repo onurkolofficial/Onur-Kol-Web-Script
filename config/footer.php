@@ -11,5 +11,5 @@
 		</ul>
 		<?php } ?>
 	</div>
-	<div class="footer-version"><?php echo $site_version; ?></div>
+	<div class="footer-version"><?php echo $WebVersion; ?></div>
 </div>

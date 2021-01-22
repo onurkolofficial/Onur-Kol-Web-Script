@@ -2,9 +2,9 @@
 
 function deleteApplication(appId,message){
     if(message==null)
-        message="Are you sure delete application ("+categoryId+") ?";
+        message="Are you sure delete application ("+appId+") ?";
     
     if(confirm(message)){
-        window.location.href="delete/?id="+categoryId;
+        window.location.href="delete/?id="+appId;
     }
 }

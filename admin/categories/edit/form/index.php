@@ -11,11 +11,11 @@ $CategoryName=$_POST['name'];
 $CategoryIndex=$_POST['index'];
 
 if(empty($CategoryNewId)){
-    echo '<script>alert("'.$_LANG['string_empty_category_id_text'].'"); window.location.href="../../";</script>';
+    echo '<script>alert("'.$_LANG['string_empty_category_id_text'].'"); window.location.href="../?id='.$CategoryUpdateId.'";</script>';
 }
 else{
     if(empty($CategoryName)){
-        echo '<script>alert("'.$_LANG['string_empty_category_name_url'].'"); window.location.href="../../";</script>';
+        echo '<script>alert("'.$_LANG['string_empty_category_name_url'].'"); window.location.href="../?id='.$CategoryUpdateId.'";</script>';
     }
     else{
         // Get Current Item

@@ -27,8 +27,8 @@ else{
             $UserRow=$WebConfig->FetchAssoc($QueryResult);
             // Found Account and Set Session
             $WebConfig->SetSession('UserID',$UserRow['id']);
-            // Redirect Admin Homepage and Check Admin Account.
-            header("Location: /admin/");
+            // Redirect
+            header("Location: /");
         }
         else{
             echo '<script>alert("'.$_LANG['string_wrong_account'].'"); window.location.href="../";</script>';

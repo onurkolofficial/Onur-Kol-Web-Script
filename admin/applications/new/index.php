@@ -38,7 +38,7 @@ require WebConfig::ConfigPath."/head.php";
 			<div>
                 <form class="page-form vertical" action="form/" method="POST">
                     <div class="form-row">
-                        <p><i class="fad fa-key"></i> <?php echo $_LANG['string_application_category_text']; ?></p>
+                        <p><i class="fad fa-list"></i> <?php echo $_LANG['string_application_category_text']; ?></p>
                         <div class="select">
                             <select name="category">
                                 <?php
@@ -54,7 +54,7 @@ require WebConfig::ConfigPath."/head.php";
                                         $categoryText=$_LANG[$categoryLanguageKey];
                                     else
                                         $categoryText=$Row['CategoryName'];
-                                    // Print Options
+                                    // Print Options 
                                     echo '<option value="'.$CategoryId.'">'.$categoryText.'</option>';
                                 }
                                 ?>
@@ -63,23 +63,23 @@ require WebConfig::ConfigPath."/head.php";
                     </div>
                     <div class="form-row">
                         <p><i class="fad fa-pencil"></i> <?php echo $_LANG['string_application_name_text']; ?></p>
-                        <input name="name" <?php echo 'placeholder="'.$_LANG['string_category_name_text'].'"'; ?> type="text">
+                        <input name="name" <?php echo 'placeholder="'.$_LANG['string_application_name_text'].'"'; ?> type="text">
                     </div>
                     <div class="form-row">
                         <p><i class="fad fa-user"></i> <?php echo $_LANG['string_application_author_text']; ?></p>
                         <input name="author" <?php echo 'placeholder="'.$_LANG['string_application_author_text'].'"'; ?> type="text">
                     </div>
                     <div class="form-row">
-                        <p><i class="fad fa-user"></i> <?php echo $_LANG['string_application_image_text']; ?></p>
+                        <p><i class="fad fa-image"></i> <?php echo $_LANG['string_application_image_text']; ?></p>
                         <input name="image" <?php echo 'placeholder="'.$_LANG['string_url_text'].'"'; ?> type="text">
                     </div>
                     <div class="form-row">
-                        <p><i class="fad fa-user"></i> <?php echo $_LANG['string_application_source_text']; ?></p>
-                        <input name="image" <?php echo 'placeholder="'.$_LANG['string_application_source_text'].'"'; ?> type="text">
+                        <p><i class="fad fa-box-open"></i> <?php echo $_LANG['string_application_source_text']; ?></p>
+                        <input name="source" <?php echo 'placeholder="'.$_LANG['string_application_source_text'].'"'; ?> type="text">
                     </div>
                     <div class="form-row">
-                        <p><i class="fad fa-user"></i> <?php echo $_LANG['string_application_download_text']; ?></p>
-                        <input name="image" <?php echo 'placeholder="'.$_LANG['string_application_download_text'].'"'; ?> type="text">
+                        <p><i class="fad fa-arrow-alt-circle-down"></i> <?php echo $_LANG['string_application_download_text']; ?></p>
+                        <input name="download" <?php echo 'placeholder="'.$_LANG['string_application_download_text'].'"'; ?> type="text">
                     </div>
                     <br>
                     <div class="form-row buttons">

@@ -12,11 +12,11 @@ $MenuItemIndex=$_POST['index'];
 $MenuItemId=$_POST['menuid'];
 
 if(empty($MenuItemText)){
-    echo '<script>alert("'.$_LANG['string_empty_menuitem_text'].'"); window.location.href="../../";</script>';
+    echo '<script>alert("'.$_LANG['string_empty_menuitem_text'].'"); window.location.href="../?id='.$ItemId.'";</script>';
 }
 else{
     if(empty($MenuItemUrl)){
-        echo '<script>alert("'.$_LANG['string_empty_menuitem_url'].'"); window.location.href="../../";</script>';
+        echo '<script>alert("'.$_LANG['string_empty_menuitem_url'].'"); window.location.href="../?id='.$ItemId.'";</script>';
     }
     else{
         // Get Current Item

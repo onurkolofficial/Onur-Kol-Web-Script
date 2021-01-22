@@ -44,6 +44,14 @@ require WebConfig::ConfigPath."/head.php";
     <div class="page-section">
         <h2 class="page-title"><?php echo $_LANG['string_android_apps_text']; ?></h2>
     </div>
+    <div class="page-section">
+        <!-- Action Buttons !-->
+        <div>
+            <a href="../">
+                <button style="font-size:14px; width:150px; height:60px;"><?php echo $_LANG['string_back_text']; ?></button>
+            </a>
+        </div>
+    </div>
     <!-- App List !-->
     <div class="page-section">
         <div class="page-grid-3">

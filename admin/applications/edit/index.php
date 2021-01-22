@@ -15,15 +15,19 @@ $QueryResult=$WebConfig->Query("SELECT * FROM users WHERE id='$AdminID'");
 $User=$WebConfig->FetchAssoc($QueryResult);
 
 // Get Data
-$GetCategoryId=$_GET['id'];
+$GetAppId=$_GET['id'];
 
 // Get Item Data
-$QueryResult=$WebConfig->Query("SELECT * FROM appcategories WHERE CategoryId='$GetCategoryId'");
+$QueryResult=$WebConfig->Query("SELECT * FROM applications WHERE AppId='$GetAppId'");
 $Row=$WebConfig->FetchAssoc($QueryResult);
 
-$CategoryId=$Row['CategoryId'];
-$CategoryName=$Row['CategoryName'];
-$CategoryIndex=$Row['CategoryIndex'];
+$AppCategoryId=$Row['CategoryId'];
+$AppName=$Row['AppName'];
+$AppAuthor=$Row['AppAuthor'];
+$AppImage=$Row['AppImage'];
+$AppSource=$Row['AppSourceUrl'];
+$AppDownload=$Row['AppDownloadUrl'];
+
 
 require WebConfig::ConfigPath."/head.php";
 ?>
@@ -50,19 +54,54 @@ require WebConfig::ConfigPath."/head.php";
                 <form class="page-form vertical" action="form/" method="POST">
                     <?php
                         // Hidden Values
-                        echo '<input name="oldid" value="'.$CategoryId.'" type="hidden">';
+                        echo '<input name="appid" value="'.$GetAppId.'" type="hidden">';
                     ?>
                     <div class="form-row">
-                        <p><i class="fad fa-key"></i> <?php echo $_LANG['string_category_id_text']; ?>*</p>
-                        <input name="id" <?php echo 'value="'.$CategoryId.'" placeholder="'.$_LANG['string_category_id_text'].'"'; ?> type="text">
+                        <p><i class="fad fa-list"></i> <?php echo $_LANG['string_application_category_text']; ?></p>
+                        <div class="select">
+                            <select name="category">
+                                <?php
+                                // Get Category List
+                                $QueryResult=$WebConfig->Query("SELECT * FROM `appcategories` ORDER BY `CategoryIndex` ASC");
+                                while($Row=$WebConfig->FetchAssoc($QueryResult)){
+                                    $CategoryId=$Row['CategoryId'];
+                                    // Check CategoryName exists to Language Key.
+                                    $categoryText="";
+                                    $categoryLanguageKey=trim($Row['CategoryName'],"$");
+                                    // Check Language Key.
+                                    if(isset($_LANG[$categoryLanguageKey]))
+                                        $categoryText=$_LANG[$categoryLanguageKey];
+                                    else
+                                        $categoryText=$Row['CategoryName'];
+                                    // Check Default value and Print Options
+                                    if($AppCategoryId==$CategoryId)
+                                        echo '<option selected value="'.$CategoryId.'">'.$categoryText.'</option>';
+                                    else
+                                        echo '<option value="'.$CategoryId.'">'.$categoryText.'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-row">
-                        <p><i class="fad fa-pencil"></i> <?php echo $_LANG['string_category_name_text']; ?>*</p>
-                        <input name="name" <?php echo 'value="'.$CategoryName.'" placeholder="'.$_LANG['string_category_name_text'].'"'; ?> type="text">
+                        <p><i class="fad fa-pencil"></i> <?php echo $_LANG['string_application_name_text']; ?></p>
+                        <input name="name" <?php echo 'value="'.$AppName.'" placeholder="'.$_LANG['string_application_name_text'].'"'; ?> type="text">
                     </div>
                     <div class="form-row">
-                        <p><i class="fad fa-asterisk"></i> <?php echo $_LANG['string_category_index_text']; ?>*</p>
-                        <input name="index" <?php echo 'value="'.$CategoryIndex.'" placeholder="'.$_LANG['string_category_index_text'].'"'; ?> type="text">
+                        <p><i class="fad fa-user"></i> <?php echo $_LANG['string_application_author_text']; ?></p>
+                        <input name="author" <?php echo 'value="'.$AppAuthor.'" placeholder="'.$_LANG['string_application_author_text'].'"'; ?> type="text">
+                    </div>
+                    <div class="form-row">
+                        <p><i class="fad fa-image"></i> <?php echo $_LANG['string_application_image_text']; ?></p>
+                        <input name="image" <?php echo 'value="'.$AppImage.'" placeholder="'.$_LANG['string_url_text'].'"'; ?> type="text">
+                    </div>
+                    <div class="form-row">
+                        <p><i class="fad fa-box-open"></i> <?php echo $_LANG['string_application_source_text']; ?></p>
+                        <input name="source" <?php echo 'value="'.$AppSource.'" placeholder="'.$_LANG['string_application_source_text'].'"'; ?> type="text">
+                    </div>
+                    <div class="form-row">
+                        <p><i class="fad fa-arrow-alt-circle-down"></i> <?php echo $_LANG['string_application_download_text']; ?></p>
+                        <input name="download" <?php echo 'value="'.$AppDownload.'" placeholder="'.$_LANG['string_application_download_text'].'"'; ?> type="text">
                     </div>
                     <br>
                     <div class="form-row buttons">

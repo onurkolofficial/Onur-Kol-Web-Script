@@ -286,28 +286,27 @@ select::-ms-expand {
 }
 /* Custom Select */
 .select {
-  position: relative;
-  display: flex;
-  width: 20em;
-  height: 3em;
-  line-height: 3;
-  background: #fff;
-  overflow: hidden;
-  border-radius: .25em;
+	border: 1px solid #ddd;
+	position: relative;
+	display: flex;
+	height: 40px;
+	line-height: 3;
+	background: #fff;
+	overflow: hidden;
+	border-radius: .25em;
 }
 select {
-  flex: 1;
-  padding: 0 .5em;
-  color: #222;
-  cursor: pointer;
+	flex: 1;
+	color: #222;
+	cursor: pointer;
 }
 /* Arrow */
 .select::after {
   content: '\25BC';
   position: absolute;
-  top: 0;
+  top: -2px;
   right: 0;
-  padding: 0 1em;
+  padding: 0 15px;
   background: #ddd;
   cursor: pointer;
   pointer-events: none;

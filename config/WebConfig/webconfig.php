@@ -6,8 +6,8 @@ namespace WebConfig;
 define('WebRoot',$_SERVER['DOCUMENT_ROOT']);
 
 class Config {
-    // Version Info
-    public const Version="1.1.0"; // 1.5.0
+    // Module Version
+    public const Version="1.0.0";
 
     // Path Info
     public const RootPath=WebRoot;
@@ -27,6 +27,9 @@ class Config {
     private $LanguageCurrent=null;
     private $LanguageFileType="ini";
     private $LanguageFileNameTag=""; // example: 'TAG_' to 'TAG_$Language.$FileType' = 'TAG_en.ini'
+
+    // File Info
+    private $CurrentOpenFile=null;
 
     ///!
     // WebConfig Connection Methods
@@ -262,6 +265,33 @@ class Config {
         return session_destroy();
     }
 
+    ///!
+    // WebConfig File Methods
+    ///!
+    public function OpenFile($File,$Mode=null){
+        if($Mode==null)
+            $Mode="w";
+        return $this->CurrentOpenFile=fopen($File,$Mode);
+    }
+    public function WriteFile($File=null,$WriteText){
+        if($File==null)
+            $File=$this->CurrentOpenFile;
+        return fwrite($File,$WriteText);
+    }
+    public function CloseFile($OpenFile=null){
+        if($OpenFile==null)
+            $OpenFile=$this->CurrentOpenFile;
+        return fclose($OpenFile);
+    }
+    public function GetContentsFile($File){
+        return file_get_contents($File);
+    }
+    public function PutContentsFile($File,$WriteText){
+        return file_put_contents($File,$WriteText);
+    }
+    public function FileExists($File){
+        return file_exists($File);
+    }
 
 }
 ?>

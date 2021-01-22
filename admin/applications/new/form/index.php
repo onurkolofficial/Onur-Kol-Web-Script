@@ -5,53 +5,34 @@ require $_SERVER['DOCUMENT_ROOT']."/config/config.php";
 use \WebConfig\Config as WebConfig;
 
 // Get Form Data
-$CategoryId=$_POST['id'];
-$CategoryName=$_POST['name'];
-$CategoryIndex=$_POST['index'];
+$AppCategory=$_POST['category'];
+$AppName=$_POST['name'];
+$AppAuthor=$_POST['author'];
+$AppImageUrl=$_POST['image'];
+$AppSource=$_POST['source'];
+$AppDownload=$_POST['download'];
+// Generate Application ID (keygen module:/config/modules/keygen.php)
+$AppId=$KeyGen->CreateKey(50);
 
-if(empty($CategoryId)){
-    echo '<script>alert("'.$_LANG['string_empty_category_id_text'].'"); window.location.href="../";</script>';
+if(empty($AppName)){
+    echo '<script>alert("'.$_LANG['string_empty_app_name_text'].'"); window.location.href="../";</script>';
 }
 else{
-    if(empty($CategoryName)){
-        echo '<script>alert("'.$_LANG['string_empty_category_name_url'].'"); window.location.href="../";</script>';
+    if(empty($AppImageUrl)){
+        echo '<script>alert("'.$_LANG['string_empty_app_image_text'].'"); window.location.href="../";</script>';
     }
     else{
-        // Check Item Index (Position)
-        if($CategoryIndex!=""){
-            $CategoryIndex=$_POST['index'];
-            // Check Exists Index
-            $QueryResult=$WebConfig->Query("SELECT * FROM appcategories WHERE CategoryIndex>='$CategoryIndex'");
-            if($WebConfig->NumRows($QueryResult)>=1){
-                // Count Exists Item Index
-                while($Row=$WebConfig->FetchAssoc($QueryResult)){
-                    // Get Update Id
-                    $GetCategoryId=$Row['CategoryId'];
-                    // Get and Count Current Index
-                    $Index=$Row['CategoryIndex'];
-                    $NewIndex=$Index+1;
-                    // Update Item
-                    $WebConfig->Query("UPDATE appcategories SET CategoryIndex='$NewIndex' WHERE CategoryId='$GetCategoryId'");
-                }
-            }
-        }
-        else{
-            // Add Item to End Position
-            // Count All Items
-            $QueryResult=$WebConfig->Query("SELECT * FROM appcategories");
-            $TotalCount=$WebConfig->NumRows($QueryResult);
-            // Set New Index
-            $CategoryIndex=$TotalCount+1;
-        }
-
-        $QString="INSERT INTO appcategories (CategoryId,CategoryName,CategoryIndex) VALUES ('$CategoryId','$CategoryName','$CategoryIndex')";
+        $TableRows="AppId,CategoryId,AppName,AppAuthor,AppImage,AppDownloadUrl,AppSourceUrl";
+        $TableValues="'$AppId','$AppCategory','$AppName','$AppAuthor','$AppImageUrl','$AppDownload','$AppSource'";
+        $QString="INSERT INTO applications ($TableRows) VALUES ($TableValues)";
         if($WebConfig->Query($QString)){
             // Success.
-            header("Location: ../");
+            header("Location: ../../");
         }
         else{
             echo '<script>alert("'.$_LANG['string_unknown_error'].'"); window.location.href="../";</script>';
         }
+
     }
 }
 ?>

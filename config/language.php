@@ -3,6 +3,9 @@
 // Use Modules.
 use \WebConfig\Config as WebConfig;
 
+// Get All Languages
+$_LANGUAGES=array();
+
 // Check Get Language
 $GetLanguage=isset($_GET['lang']);
 $GetCookieLanguage=false;
@@ -15,6 +18,20 @@ $LanguageFileType=$WebConfig->GetLanguageFileType(); // Default: "ini"
 //!
 // $WebConfig->SetLanguageFileNameTag("language_file_");
 // $WebConfig->SetLanguageFileType("php");
+
+// Set Language List
+foreach(glob(WebConfig::RootPath.'/language/*.'.$LanguageFileType) as $langfile){
+    // Set CHMOD
+    chmod($langfile,0777);
+    // Get File Info
+    $file=pathinfo($langfile);
+    $fileNameTag=$file['filename'];
+    // Remove File Name tag and find language code. (Eg. en, tr, ...)
+    $fileName=str_replace($LanguageFileNameTag,'',$fileNameTag);
+    // Add Language to Array
+    $_LANGUAGES[$fileName]=$fileName;
+}
+
 
 // If Get Language
 if($GetLanguage){
