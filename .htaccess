@@ -12,3 +12,4 @@ ErrorDocument 404 /404/
 # Language Redirect [L,QSA]
 RewriteRule ^([a-z]{2})$ /?lang=$1 [L,QSA]
 RewriteRule ^(.*)/([a-z]{2})$ $1/?lang=$2 [L,QSA]
+RewriteRule ^(login|register)$ /admin/$1 [L,QSA]

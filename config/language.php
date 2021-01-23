@@ -35,8 +35,16 @@ foreach(glob(WebConfig::RootPath.'/language/*.'.$LanguageFileType) as $langfile)
 
 // If Get Language
 if($GetLanguage){
-    // Get New Language
-    $SetLanguage=$_GET['lang'];
+    // Check File Exists
+    $getLangFile=WebConfig::RootPath.'/language/'.$LanguageFileNameTag.$_GET['lang'].".".$LanguageFileType;
+    if($WebConfig->FileExists($getLangFile)){
+        // Get New Language
+        $SetLanguage=$_GET['lang'];
+    }
+    else{
+        // Set Default Language
+        $SetLanguage=$DefaultLanguage;
+    }
     // Set Current and Cookie Language.
     $WebConfig->SetCookieLanguage($SetLanguage);
     $GetCookieLanguage=false;
