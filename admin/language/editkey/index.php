@@ -32,22 +32,7 @@ if($LanguageFileType=="ini"){
     // Get Language All Keys
     $LanguageKeyArray=$Ini->Read(WebConfig::RootPath."/language/".$LanguageFile);
     // Get Value
-    foreach($LanguageKeyArray as $Key => $Value){
-        if(is_array($Value)){
-            foreach($Value as $ValueKey => $ValueValue){
-                if($ValueKey==$GetKey){
-                    $GetValue=$LanguageKeys[$ValueKey]=$ValueValue;
-                    break;
-                }
-            }
-        }
-        else{
-            if($Key==$GetKey){
-                $GetValue=$LanguageKeys[$Key]=$Value;
-                break;
-            }
-        }
-    }
+    $GetValue=$LanguageKeyArray[$GetKey];
 }
 else{
     // Call Get Lang File
@@ -86,7 +71,8 @@ require WebConfig::ConfigPath."/head.php";
                     <?php
                         // Hidden Values
                         echo '<input name="language" value="'.$GetLanguage.'" type="hidden">';
-                        echo '<input name="replace" value="'.$GetValue.'" type="hidden">';
+                        echo '<input name="replacekey" value="'.$GetKey.'" type="hidden">';
+                        echo '<input name="replacevalue" value="'.$GetValue.'" type="hidden">';
                     ?>
                     <div class="form-row">
                         <p><i class="fad fa-key"></i> <?php echo $_LANG['string_key_text']; ?></p>

@@ -9,9 +9,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 # Error Pages
 ErrorDocument 404 /404/
 
-# EN
-RewriteRule ^en$ /?lang=en
-RewriteRule ^(.*)about/en$ /about/?lang=en
-# TR
-RewriteRule ^tr$ /?lang=tr
-RewriteRule ^(.*)about/tr$ /about/?lang=tr
+# Language Redirect [L,QSA]
+RewriteRule ^([a-z]{2})$ /?lang=$1 [L,QSA]
+RewriteRule ^(.*)/([a-z]{2})$ $1/?lang=$2 [L,QSA]

@@ -27,13 +27,13 @@ require WebConfig::ConfigPath."/head.php";
     <div class="page-section">
         <!-- Temporary Notes !-->
         <div style="text-align:center;">
-            <h2>ADMIN HOME PAGE</h2>
-            <p>TEST</p>
+            <h2><?php echo $_LANG['string_admin_home_text'] ?></h2>
+            <p><?php echo $_LANG['string_admin_text'].": ".$User['UserFirstName']." ".$User['UserLastName']; ?></p>
         </div>
     </div>
     <div class="page-section">
-        <h2 class="page-title">TEST</h2>
-        <p>TEST</p>
+        <h2 class="page-title"><?php echo $_LANG['string_admin_summary']; ?></h2>
+        <p>&nbsp;</p>
     </div>
 </div>
 <?php 

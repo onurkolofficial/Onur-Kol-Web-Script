@@ -50,7 +50,7 @@ $LanguageFileNameTag=$WebConfig->GetLanguageFileNameTag();
                         <tr>
                             <th><?php echo $_LANG['string_language_code_text']; ?></th>
                             <th><?php echo $_LANG['string_language_name_text']; ?></th>
-                            <th colspan="2">&nbsp;</th>
+                            <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,11 +67,6 @@ $LanguageFileNameTag=$WebConfig->GetLanguageFileNameTag();
                                 echo '<tr>
                                 <td>'.$Value.'</td>
                                 <td>'.$langText.'</td>
-                                <td>
-                                    <a href="details/?language='.$Value.'">
-                                        <input value="'.$_LANG['string_edit_text'].'" type="button">
-                                    </a>
-                                </td>
                                 <td>
                                     <input onClick="deleteLanguage(`'.$Value.'`,`'.$_LANG['string_sure_delete_language'].'`)" value="'.$_LANG['string_delete_text'].'" type="button">
                                 </tr>';

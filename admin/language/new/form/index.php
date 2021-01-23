@@ -37,28 +37,50 @@ else{
 
             // Check File Extension
             if($LanguageFileType=="ini"){
+                // Data
+                $NewData=$LanguageCode.'="'.$GetLanguageName.'"';
                 // Build Language File
                 $LangKeys="";
                 $FileStartText='['.strtoupper($GetLanguageCode).']'."\n";
                 // Print Current Language
-                $LangKeys.=$LanguageCode.'="'.$GetLanguageName.'"'."\n";
+                $LangKeys.=$NewData."\n";
                 // Print All Ready Language Keys
                 foreach($_LANG as $Key => $Value){
                     $LangKeys.=$Key.'=""'."\n";
                 }
                 // Combine All Commands
                 $WriteLangFile=$FileStartText.$LangKeys;
-
                 // Print File
                 $WebConfig->WriteFile(null,$WriteLangFile);
+
+                // Add New Language for All Language file
+                foreach(glob($LanguagePath.'*.'.$LanguageFileType) as $langfile){
+                    // Get File Info
+                    $file=pathinfo($langfile);
+                    $fileNameTag=$file['filename'];
+                    // Remove File Name tag and find language code. (Eg. en, tr, ...)
+                    $fileName=str_replace($LanguageFileNameTag,'',$fileNameTag);
+                    if($fileName!=$GetLanguageCode){
+                        // Get File Content
+                        $FileContent=$WebConfig->GetContentsFile($langfile);
+                        // Find Language File (Ini) Start
+                        $l='['.strtoupper($fileName).']';
+                        // Add New Data
+                        $NewFileContent=str_replace($l,$l."\n".$NewData,$FileContent);
+                        // Rewrite File
+                        $WebConfig->PutContentsFile($langfile,$NewFileContent);
+                    }
+                }
             }
             else if($LanguageFileType=="php"){
+                // Data
+                $NewData='$_LANG'."['".$LanguageCode."']=".'"'.$GetLanguageName.'";';
                 // Build Language File
                 $LangKeys="";
                 $FileStartText='<?php
 $_LANG=array();'."\n\n";
                 // Print Current Language
-                $LangKeys.='$_LANG'."['".$LanguageCode."']=".'"'.$GetLanguageName.'";'."\n";
+                $LangKeys.=$NewData."\n";
                 // Print All Ready Language Keys
                 foreach($_LANG as $Key => $Value){
                     $LangKeys.='$_LANG'."['".$Key."']=".'"";'."\n";
@@ -68,10 +90,28 @@ $_LANG=array();'."\n\n";
                 $WriteLangFile=$FileStartText.$LangKeys.$FileEndText;
                 // Print File
                 $WebConfig->WriteFile(null,$WriteLangFile);
-            }
 
+                // Add New Language for All Language file
+                foreach(glob($LanguagePath.'*.'.$LanguageFileType) as $langfile){
+                    // Get File Info
+                    $file=pathinfo($langfile);
+                    $fileNameTag=$file['filename'];
+                    // Remove File Name tag and find language code. (Eg. en, tr, ...)
+                    $fileName=str_replace($LanguageFileNameTag,'',$fileNameTag);
+                    if($fileName!=$GetLanguageCode){
+                        // Get File Content
+                        $FileContent=$WebConfig->GetContentsFile($langfile);
+                        // Find Language File (Php) Start
+                        $l='$_LANG=array();';
+                        // Add New Data
+                        $FileStartContent=str_replace($l,$l."\n".$NewData,$FileContent);
+                        // Rewrite File
+                        $WebConfig->PutContentsFile($langfile,$FileStartContent);
+                    }
+                }
+            }
             // Redirect
-            header("Location: ../../");
+            header("Location: ../../?get=".$LanguageCode);
         }
     }
 }

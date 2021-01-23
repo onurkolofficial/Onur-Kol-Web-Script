@@ -8,6 +8,7 @@ use \WebConfig\Config as WebConfig;
 $GetLanguage=$_POST['language'];
 $GetLanguageKey=$_POST['key'];
 $GetLanguageValue=$_POST['value'];
+$GetStartPosition=$_POST['start'];
 
 // Get Language File Info
 $LanguageFileType=$WebConfig->GetLanguageFileType();
@@ -31,21 +32,36 @@ else{
         // Check File Extension
         if($LanguageFileType=="ini"){
             // Build Data
-            $NewData=$GetLanguageKey.'="'.$GetLanguageValue.'"';
-            // Add New Data
-            $FileContent.=$NewData."\n";
+            $NewData=$GetLanguageKey.'="'.$GetLanguageValue.'"'."\n";
+            if(isset($GetStartPosition)){
+                // Find Language File (Ini) Start
+                $l='['.strtoupper($GetLanguage).']'."\n";
+                // Add New Data
+                $NewFileContent=str_replace($l,$l.$NewData,$FileContent);
+                $FileContent=$NewFileContent;
+            }
+            else{
+                // Add New Data
+                $FileContent.=$NewData;
+            }
             // Rewrite File
             $WebConfig->PutContentsFile($LanguageFile,$FileContent);
         }
         else if($LanguageFileType=="php"){
             // Set Replace Data
-            //$ReplaceData=$GetLanguageKey.'="'.$GetReplaceValue.'"';
-            //$NewData=$GetLanguageKey.'="'.$GetLanguageValue.'"';
-            $NewData='$_LANG["'.$GetLanguageKey.'"]="'.$GetLanguageValue.'";';
-            // Remove PHP End Tag
-            $FileStartContent=str_replace('?>','',$FileContent);
-            // Add New Data in End Page
-            $FileStartContent.=$NewData."\n".'?>';
+            $NewData='$_LANG["'.$GetLanguageKey.'"]="'.$GetLanguageValue.'";'."\n";
+            if(isset($GetStartPosition)){
+                // Find Language File (Php) Start
+                $l='$_LANG=array();'."\n";
+                // Add New Data
+                $FileStartContent=str_replace($l,$l.$NewData,$FileContent);
+            }
+            else{
+                // Remove PHP End Tag
+                $FileStartContent=str_replace('?>','',$FileContent);
+                // Add New Data in End Page
+                $FileStartContent.=$NewData.'?>';
+            }
             // Rewrite File
             $WebConfig->PutContentsFile($LanguageFile,$FileStartContent);
         }

@@ -105,7 +105,16 @@ $LanguageFileNameTag=$WebConfig->GetLanguageFileNameTag();
                                     <input name="key" <?php echo 'placeholder="'.$_LANG['string_key_text'].'"'; ?> type="text">
                                 </td>
                                 <td>
-                                    <input name="value" <?php echo 'placeholder="'.$_LANG['string_value_text'].'"'; ?> type="text">
+                                    <textarea name="value" rows="2" <?php echo 'placeholder="'.$_LANG['string_value_text'].'"'; ?>></textarea>
+                                    <!--
+                                        <input name="value" <?php echo 'placeholder="'.$_LANG['string_value_text'].'"'; ?> type="text">
+                                    !-->
+                                </td>
+                                <td style="text-align:center;">
+                                    <label for="start">
+                                        <?php echo $_LANG['string_add_start_text']; ?> <br>
+                                        <input name="start" id="start" type="checkbox">
+                                    </label>
                                 </td>
                                 <td>
                                     <input <?php echo 'value="'.$_LANG['string_add_text'].'"'; ?> type="submit">

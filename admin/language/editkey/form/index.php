@@ -6,7 +6,8 @@ use \WebConfig\Config as WebConfig;
 
 // Get Form Data
 $GetLanguage=$_POST['language'];
-$GetReplaceValue=$_POST['replace'];
+$GetReplaceKey=$_POST['replacekey'];
+$GetReplaceValue=$_POST['replacevalue'];
 $GetLanguageKey=$_POST['key'];
 $GetLanguageValue=$_POST['value'];
 
@@ -32,7 +33,7 @@ else{
         // Check File Extension
         if($LanguageFileType=="ini"){
             // Set Replace Data
-            $ReplaceData=$GetLanguageKey.'="'.$GetReplaceValue.'"';
+            $ReplaceData=$GetReplaceKey.'="'.$GetReplaceValue.'"';
             $NewData=$GetLanguageKey.'="'.$GetLanguageValue.'"';
             // Replace Ini Content
             $NewFileContent=str_replace($ReplaceData,$NewData,$FileContent);
@@ -41,7 +42,7 @@ else{
         }
         else if($LanguageFileType=="php"){
             // Set Replace Data
-            $ReplaceData='$_LANG["'.$GetLanguageKey.'"]="'.$GetReplaceValue.'";';
+            $ReplaceData='$_LANG["'.$GetReplaceKey.'"]="'.$GetReplaceValue.'";';
             $NewData='$_LANG["'.$GetLanguageKey.'"]="'.$GetLanguageValue.'";';
             // Replace PHP Content
             $NewFileContent=str_replace($ReplaceData,$NewData,$FileContent);

@@ -283,6 +283,11 @@ class Config {
             $OpenFile=$this->CurrentOpenFile;
         return fclose($OpenFile);
     }
+    public function DeleteFile($File=null){
+        if($File==null)
+            $File=$this->CurrentOpenFile;
+        return unlink($File);
+    }
     public function GetContentsFile($File){
         return file_get_contents($File);
     }
