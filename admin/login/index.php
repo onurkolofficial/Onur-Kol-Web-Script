@@ -19,6 +19,14 @@ require WebConfig::ConfigPath."/head.php";
         <p><i class="fad fa-list"></i> <?php echo $_LANG['string_login_account_text']; ?></p>
         <h4><?php echo $_LANG['string_login_account_summary']; ?></h4>
     </div>
+	<div class="page-section">
+        <!-- Action Buttons !-->
+        <div>
+            <a href="/">
+                <button style="font-size:14px; width:150px; height:60px;"><?php echo $_LANG['string_back_text']; ?></button>
+            </a>
+        </div>
+    </div>
     <div class="page-section">
         <div class="page-grid-3">
 			<div></div>

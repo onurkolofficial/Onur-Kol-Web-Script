@@ -50,6 +50,10 @@
                 }
                 echo '<li><a href="/logout/" class="menu-item">'.$_LANG['string_logout_text'].'</a></li>';
             }
+            else{
+                if(!isset($LoginPage) || !$LoginPage)
+                    echo '<li><a href="/login" class="menu-item">'.$_LANG['string_login_text'].'</a></li>';
+            }
         ?>
     </ul>
     <ul class="nav-menu-mobile">
@@ -67,6 +71,10 @@
                     echo '<li><a href="/admin/" class="menu-item">'.$_LANG['string_admin_text'].'</a></li>';
                 }
                 echo '<li><a href="/logout/" class="menu-item">'.$_LANG['string_logout_text'].'</a></li>';
+            }
+            else{
+                if(!isset($LoginPage) || !$LoginPage)
+                    echo '<li><a href="/login" class="menu-item">'.$_LANG['string_login_text'].'</a></li>';
             }
         ?>
     </ul>

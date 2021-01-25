@@ -1,15 +1,26 @@
 # Set Timezone
 php_value date.timezone Europe/Istanbul
 
-RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-
 # Error Pages
 ErrorDocument 404 /404/
 
-# Language Redirect [L,QSA]
+RewriteEngine On
+RewriteBase /
+
+###### Rewrite Method 1
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Language Rewrite [L,QSA]
 RewriteRule ^([a-z]{2})$ /?lang=$1 [L,QSA]
 RewriteRule ^(.*)/([a-z]{2})$ $1/?lang=$2 [L,QSA]
+
+###### Rewrite Method 2
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Category Rewrite
+RewriteRule ^apps/(.*)$ /apps/applist/?cat=$1 [NC,QSA]
+
+# Login/Register Redirect
 RewriteRule ^(login|register)$ /admin/$1 [L,QSA]

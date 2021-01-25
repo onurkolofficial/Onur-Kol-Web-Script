@@ -45,7 +45,7 @@ require WebConfig::ConfigPath."/head.php";
                         $categoryText=$Row['CategoryName'];
 
                     echo '<div class="category-item">
-                    <a href="applist/?cat='.$CategoryId.'">
+                    <a href="'.$CategoryId.'">
                         <button class="category-button">'.$categoryText.'</button>
                     </a>
                 </div>';
